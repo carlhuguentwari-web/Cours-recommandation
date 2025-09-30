@@ -1,4 +1,4 @@
-python
+
 import pandas as pd
 cours = pd.DataFrame({
     'id': [1, 2, 3, 4, 5],
@@ -18,14 +18,12 @@ cours = pd.DataFrame({
     ]
 })
 
-python
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 vectorizer = TfidfVectorizer()
 tfidf_matrix = vectorizer.fit_transform(cours['description'])
 similarité = cosine_similarity(tfidf_matrix)
 
-python
 def recommander(id_cours, n=3):
     index = cours[cours['id'] == id_cours].index[0]
     scores = list(enumerate(similarité[index]))
@@ -34,7 +32,6 @@ def recommander(id_cours, n=3):
     return recommandations
 print(recommander(1))
 
-python
 import streamlit as st 
 st.title(" Recommandation de cours e-learning")
 
