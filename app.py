@@ -30,7 +30,6 @@ def recommander(id_cours, n=3):
     scores = sorted(scores, key=lambda x: x[1], reverse=True)
     recommandations = [cours.iloc[i[0]]['titre'] for i in scores[1:n+1]]
     return recommandations
-print(recommander(1))
 
 import streamlit as st 
 st.title(" Recommandation de cours e-learning")
